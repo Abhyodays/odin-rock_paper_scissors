@@ -1,35 +1,31 @@
 function playRound(playerSelection, computerSelection) {
+let output = document.querySelector('.output');
+output.style.margin = '16px 0 0 0';
 playerSelection = playerSelection.toLowerCase();
+if(playerSelection == computerSelection){
+  output.textContent="Draw!";
+}
 if(playerSelection=="rock" && computerSelection =="paper"){
-return "You Loose!,Paper beats Rock";
+output.textContent= "You Loose! Paper beats Rock";
 }
 if(playerSelection =="rock" && computerSelection =="scissor"){
-  return "You Won!,Rock Beates Scissor";
-}
-if(playerSelection =="rock" && computerSelection == "rock"){
-return "Draw!"
-}
-if(playerSelection =="scissor" && computerSelection == "scissor"){
-return "Draw!";
+  output.textContent= "You Won! Rock Beates Scissor";
 }
 if(playerSelection =="scissor" && computerSelection=="paper"){
-  return "You Won!,Scissor beats paper" ;
+  output.textContent= "You Won!,Scissor beats paper" ;
 }
 if(playerSelection =="scissor" && computerSelection =="rock"){
-  return "You Loose!,Rock beats Scissor";
-}
-if(playerSelection =="paper" && computerSelection =="paper"){
-  return "Draw!";
+  output.textContent= "You Loose! Rock beats Scissor";
 }
 if(playerSelection =="paper" && computerSelection =="scissor"){
-  return "You Loose!,Scissor beates paper";
+  output.textContent= "You Loose! Scissor beates paper";
 }
 if(playerSelection =="paper" && computerSelection=="rock"){
-  return "You win!,Paper Beates Rock."
+  output.textContent= "You win! Paper Beates Rock."
 }
 }
-function play(){
-let playerSelection = prompt("Enter Rock/Paper/Scissor");
+function play(playerSelection){
+
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
 }
